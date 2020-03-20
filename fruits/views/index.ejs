@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+</head>
+<body>
+    <nav>
+        <h1>Fruits index page</h1>
+        <a href="/create">Create a New Fruit</a>
+    </nav>
+    <ul>
+        <% for(let i = 0; i < fruits.length; i++){ %>
+            <li>
+                <a href="/<%= fruits[i].id %>">
+                    The <%=fruits[i].name%>
+                </a>
+                is <%= fruits[i].color %>.
+                <% if(fruits[i].readyToEat === true){ %>
+                    It is ready to eat.
+                <% }else { %>
+                    It is not ready to eat.
+                <% } %>
+            </li>
+            <!-- Edit Button -->
+            <a href="/<%=fruits[i].id %>/edit"><button>EDIT</button></a>
+            <!--  ADD DELETE FORM HERE-->
+            <form action="/<%= fruits[i].id %>?_method=DELETE" method="POST" style="display: inline;">
+                <input type="submit" value="DELETE"/>
+            </form><br><br>
+        <% } %>
+    </ul>
+</body>
+</html>

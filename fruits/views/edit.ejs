@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Fruit Page</title>
+</head>
+<body>
+    <h1>Edit <%= fruit.name %> Fruit</h1>
+    <form action="/<%= fruit.id %>?_method=PUT" method="POST">
+        <label for="name">Name :</label><br>
+        <input type="text" name="name" value="<%= fruit.name %>"><br>
+        <label for="color">Color :</label><br>
+        <input type="text" name="color" value="<%= fruit.color %>"><br>
+        <label for="readyToEat">Is Ready To Eat :</label>
+        <input type="checkbox" name="readyToEat" value="on"
+        <% if(fruit.readyToEat === true){ %>
+            checked
+        <% } %>
+        ><br>
+        <button type="submit">Edit</button>
+    </form>
+</body>
+</html>
